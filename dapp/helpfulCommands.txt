@@ -1,0 +1,2 @@
+List all accounts and balances
+(await web3.eth.getAccounts()).forEach(async ac => console.log(ac + ' ' + web3.utils.fromWei(await web3.eth.getBalance(ac), "ether")))
