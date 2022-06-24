@@ -61,18 +61,19 @@ class App extends Component {
     // Update state with the result.
     this.setState({ balance: response, accounts });
   };
-
   render() {
     if (!this.state.web3) {
       return <div>Loading Web3, accounts, and contract...</div>;
     }
     return (
       <div className="App">
-        <h1>Good to Go!</h1>
-        <p>Your Truffle Box is installed and ready.</p>
-        <h2>Smart Contract Example</h2>
-        <div>account: {this.state.accounts[0].id}</div>
-        <div>balance: {this.state.balance} WEI</div>
+        <h1>Accounts</h1>
+        <p>See info about you account balances and other accounts on the network</p>
+        <h2>Your Account info</h2>
+        <div><b>Account Address:</b> {this.state.accounts[0].id}</div>
+        <div><b>Balance:</b> {this.state.balance} ETH</div>
+        <br/>
+        <h2>Other Accounts</h2>
         {this.state.accounts.map(acc => { return <li>{acc.id + ": " + acc.balance + " ETH" }</li>})}
       </div>
     );
