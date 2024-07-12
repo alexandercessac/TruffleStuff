@@ -18,7 +18,8 @@ This will create an alpine docker image with truffle and ganache installed
 Run the `startGanache.sh` script in the `dapp/` directory
 
 ```sh
-./dapp/startGanache.sh
+cd ./dapp/
+./startGanache.sh
 ```
 
 This will start an instance of the container and run the ganache process that will manage your blockchain.
@@ -26,7 +27,8 @@ This will start an instance of the container and run the ganache process that wi
 In a separate terminal (or after altering the previous script to run ganache in the background by changing `docker run -it` to `docker run -d `), run the `attach.sh` script in the `dapp/` directory
 
 ```sh
-./dapp/attach.sh
+cd ./dapp/
+./attach.sh
 ```
 
 This will attach your terminal to the running container.
@@ -44,8 +46,16 @@ NOTE: There is an issue with installing dependancies when building the docker im
 apk add -t --no-cache git python g++ make
 ```
 
-when the install command completes, you can host your app at `http://127.0.0.1:3000/` by running the following:
+when the install command completes, you can host your app at `http://127.0.0.1:5173/` by running the following:
 
 ```sh
-npm start
+cd /home/node/app/clientNew/goals-client/
+npm run dev
 ```
+
+contracts are created in the `app/contracts/` folder and can be deployed by creating a migration in the sibling `migrations` folder and then running
+
+```sh
+truffle migrate
+```
+from the `app/` folder
