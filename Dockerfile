@@ -1,26 +1,37 @@
-FROM node:15-alpine
+FROM node:18-alpine
 
 RUN mkdir -p /home/node/app
 
 WORKDIR /home/node/app
 
-#COPY . .
-
-RUN apk add -t .gyp --no-cache git python g++ make &&\
-    npm install -g truffle ganache-cli &&\
-    npm install &&\
+RUN apk add -t .gyp --no-cache git python3 g++ make &&\
+    npm install -g truffle ganache &&\
     apk del .gyp
 
 ENTRYPOINT [ "/bin/sh" ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #CMD [ "./entry.sh" ]
-
-
-
-
-
-
-
-
 
 #FROM debian
 
